@@ -16,11 +16,20 @@ class UnsortedList:
         # [STEP 1] 공간 확보: 맨 뒤에 빈 칸 만들기
         # TODO: self.items에 자리 하나를 만든다 (예: None 추가)
 
+        self.items.append(None)  # 공간 확보
+
         # [STEP 2] 뒤에서 앞으로 한 칸씩 이동
         # TODO: range(끝-1, index-1, -1) 형태의 역방향 루프로
         #       i 위치의 값을 i+1로 복사한다. (프린트로 이동 로그도 남겨보기)
 
+        for i in range(len(self.items) - 2, index - 1, -1):
+            self.items[i + 1] = self.items[i]
+            print(f"이동: index {i} -> index {i + 1}")
+            time.sleep(0.1)  # 시간 지연 (optional)
+
         # [STEP 3] 비워둔 index 자리에 새 값 쓰기
+
+        self.items[index] = item
 
         # [STEP 4] 상태 출력(확인용)
         print(f"삽입 완료: {self.items}")
@@ -36,6 +45,12 @@ class UnsortedList:
 
         # [STEP 1] 인덱스 유효성 처리
         # TODO: 만약 index가 범위 밖(>= len)이라면 append(item)하고 종료
+
+        if pass:
+            pass
+
+        else:
+            pass
 
         # [STEP 2] 기존 값 백업
 
