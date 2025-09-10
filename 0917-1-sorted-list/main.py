@@ -1,5 +1,5 @@
-from answer_official import SortedList
-# from answer import SortedList
+# from answer_official import SortedList
+from answer import SortedList
 
 def main():
     s_list = SortedList(10)
