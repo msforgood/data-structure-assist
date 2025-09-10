@@ -38,13 +38,10 @@ class UnsortedList:
         # TODO: 만약 index가 범위 밖(>= len)이라면 append(item)하고 종료
 
         # [STEP 2] 기존 값 백업
-        # TODO: moved = self.items[index]
 
         # [STEP 3] 백업 값을 맨 뒤에 붙이기
-        # TODO: self.items.append(moved)
 
         # [STEP 4] index 자리에 새 값 덮어쓰기
-        # TODO: self.items[index] = item
 
         print(f"완료: {self.items}")
 
