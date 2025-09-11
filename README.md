@@ -62,7 +62,7 @@ $ ./main                                     # 실행
 
 - Windows:  
   Visual Studio Code를 통한 설치 권장  
-  참고: [VSCode 설치 안내](https://velog.io/@watermeloncrane/vscode%EC%97%90%EC%84%9C-C-C-%EC%84%A4%EC%B9%98-%EC%89%BD%EA%B2%8C%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0)
+  참고: [VSCode 설치 안내](https://velog.io/@watermeloncrane/vscode%EC%97%90%EC%84%9C-CC-%EC%84%B8%ED%8C%85-%EC%89%AC%EC%9B%80)
 
 ---
 
