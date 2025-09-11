@@ -1,6 +1,5 @@
 #include <iostream>
-#include "answer_official.hpp"
-// #include "answer.hpp"   // 실습시 이걸로 바꾸기
+#include "answer.hpp"
 
 using namespace std;
 
