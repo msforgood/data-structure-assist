@@ -1,32 +1,39 @@
-// main.cpp
 #include <iostream>
-// 둘 중 하나만 선택해서 include
-// #include "answer_official.hpp"
-#include "answer.hpp"
+#include "answer_official.hpp"
+// #include "answer.hpp"   // 실습시 이걸로 바꾸기
 
 using namespace std;
 
 int main() {
     int x = 3, y = 5;
 
-    cout << "=== 1) Call by Value (swap_value) ===" << endl;
-    cout << "swap 전: x=" << x << ", y=" << y << endl;
+    cout << "=== 1) swap_value (Call by Value) ===" << endl;
+    x = 3; y = 5;
+    cout << "swap 전: " << x << ", " << y << endl;
     swap_value(x, y);
-    cout << "swap 후: x=" << x << ", y=" << y << " (변화 없음)" << endl << endl;
+    cout << "swap 후: " << x << ", " << y << " (안 바뀜)" << endl << endl;
 
-    cout << "=== 2) Call by Reference (swap_ref) ===" << endl;
-    cout << "swap 전: x=" << x << ", y=" << y << endl;
+    cout << "=== 2) swap_ref (Call by Reference) ===" << endl;
+    x = 3; y = 5;
+    cout << "swap 전: " << x << ", " << y << endl;
     swap_ref(x, y);
-    cout << "swap 후: x=" << x << ", y=" << y << " (실제 값 바뀜)" << endl << endl;
+    cout << "swap 후: " << x << ", " << y << " (바뀜)" << endl << endl;
 
-    cout << "=== 3) Call by Address (swap_pointer) ===" << endl;
-    cout << "swap 전: x=" << x << ", y=" << y << endl;
-    swap_pointer(&x, &y);
-    cout << "swap 후: x=" << x << ", y=" << y << " (실제 값 바뀜)" << endl << endl;
+    cout << "=== 3) swap_pointer_deref (Call by Address) ===" << endl;
+    x = 3; y = 5;
+    cout << "swap 전: " << x << ", " << y << endl;
+    swap_pointer_deref(&x, &y);
+    cout << "swap 후: " << x << ", " << y << " (바뀜)" << endl << endl;
 
-    cout << "=== 4) increment(&x) ===" << endl;
+    cout << "=== 4) swap_pointer_var (포인터 변수 교환) ===" << endl;
+    x = 3; y = 5;
+    cout << "swap 전: " << x << ", " << y << endl;
+    swap_pointer_var(&x, &y);
+    cout << "swap 후: " << x << ", " << y << " (안 바뀜)" << endl << endl;
+
+    cout << "=== 5) increment_pointer(&x) ===" << endl;
     cout << "증가 전 x=" << x << endl;
-    increment(&x);
+    increment_pointer(&x);
     cout << "증가 후 x=" << x << endl << endl;
 
     return 0;
