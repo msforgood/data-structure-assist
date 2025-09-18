@@ -29,13 +29,13 @@ git pull origin main
 git config merge.ours.driver true
 ```
 
-- 이 설정을 해두면 git pull 시 충돌 없이 본인 답안이 유지됩니다.
+- 이 설정을 해두면 `pull` 시 충돌 없이 본인 답안이 유지됩니다.
 
-### ⚠️ 이미 `git pull`에서 충돌이 발생한 경우
+### ⚠️ 이미 `pull`에서 충돌이 발생한 경우
 
-.gitattributes 파일이 반영되지 않아 pull 도중 에러가 날 수 있습니다.
+`.gitattributes` 파일이 반영되지 않아 `pull` 도중 에러가 날 수 있습니다.
 
-이 경우 내 답안을 임시 저장한 뒤 다시 pull 하세요.
+이 경우 내 답안을 `stash`로 임시 저장한 뒤 다시 `pull` 하세요.
 
 ```bash
 git stash push -m "my work backup" --include-untracked
@@ -43,9 +43,13 @@ git pull --rebase origin main
 git stash pop
 ```
 
+그 후에 `config`를 실행합니다.
+
 ```bash
 git config merge.ours.driver true
 ```
+
+---
 
 ## 실습 진행 및 정답 코드 확인 방법
 
