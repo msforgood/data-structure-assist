@@ -1,0 +1,3 @@
+# .gitattributes
+answer.py merge=ours
+answer.cpp merge=ours
