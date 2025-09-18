@@ -1,37 +1,71 @@
 # 2025-가을 자료구조 실습 코드
 
-## 1. 실습 코드 다운로드
+## 실습 코드 다운로드
 
 - 실습 코드 폴더 생성 원하는 곳에서 아래 명령어 실행
 
 ```bash
-$ git clone https://github.com/msforgood/data-structure-assist.git
+git clone https://github.com/msforgood/data-structure-assist.git
 ```
 
 (깃허브 페이지에서 Code → HTTPS 주소 복사 후 사용 가능)
 
-## 2. 기존에 clone 한 경우 업데이트
+### 🙋🏻 기존에 clone 한 경우 업데이트
 
 - 저번 시간에 이미 clone 했다면 main 브랜치 pull 만으로도 최신 코드 반영 가능
 - 해당 폴더 터미널에서 아래 명령어 실행
 
 ```bash
-$ git pull origin main
+git pull origin main
 ```
 
-## 3. Python 실행 방법
+## (중요) 충돌 방지 설정
+
+저장소에 `.gitattributes` 파일을 추가해 `answer.*` 파일은 항상 학생 본인 실습 코드가 우선 적용되도록 설정했습니다.
+
+따라서 각자 한 번씩 아래 명령어를 실행해야 합니다.
+
+```bash
+git config merge.ours.driver true
+```
+
+- 이 설정을 해두면 git pull 시 충돌 없이 본인 답안이 유지됩니다.
+
+### ⚠️ 이미 `git pull`에서 충돌이 발생한 경우
+
+.gitattributes 파일이 반영되지 않아 pull 도중 에러가 날 수 있습니다.
+
+이 경우 내 답안을 임시 저장한 뒤 다시 pull 하세요.
+
+```bash
+git stash push -m "my work backup" --include-untracked
+git pull --rebase origin main
+git stash pop
+```
+
+```bash
+git config merge.ours.driver true
+```
+
+## 실습 진행 및 정답 코드 확인 방법
+
+- 정답 코드는 `answer.*` 파일에 작성
+- 작성한 코드 확인은 `main.*` 실행
+- 오피셜 정답은 `answer_official.*` 로 제공 예정
+
+### Python 실행 방법
 
 - 정답 코드는 `answer.py` 파일에 작성
 - 작성한 코드 확인은 `main.py` 실행
 
 ```bash
-$ python {자신의 폴더 실행 경로}/main.py
+python {자신의 폴더 실행 경로}/main.py
 ```
 
 - 오피셜 정답은 `answer_official.py` 로 제공 예정
 - `main.py` 내부 import 구문을 `from answer import ...` 또는 `from answer_official import ...` 로 바꾸어 테스트 가능
 
-## 4. C++ 실행 방법
+### C++ 실행 방법
 
 - 정답 코드: `answer_official.cpp`
 - 실습 코드: `answer.cpp`
@@ -39,17 +73,17 @@ $ python {자신의 폴더 실행 경로}/main.py
 컴파일 및 실행 예시:
 
 ```bash
-$ g++ main.cpp answer_official.cpp -o main   # 정답 버전 컴파일
-$ g++ main.cpp answer.cpp -o main            # 실습 버전 컴파일
-$ ./main                                     # 실행
+g++ main.cpp answer_official.cpp -o main   # 정답 버전 컴파일
+g++ main.cpp answer.cpp -o main            # 실습 버전 컴파일
+./main                                     # 실행
 ```
 
-### g++ 설치 방법
+#### g++ 설치 방법
 
 - Linux:
 
   ```bash
-  $ sudo apt install build-essential
+  sudo apt install build-essential
   ```
 
 - macOS:  
@@ -57,7 +91,7 @@ $ ./main                                     # 실행
   동작하지 않으면
 
   ```bash
-  $ xcode-select --install
+  xcode-select --install
   ```
 
 - Windows:  
