@@ -1,36 +1,60 @@
 import time
+import random
 from answer_official import selection_sort, bubble_sort, insertion_sort, quick_sort, merge_sort
 
-sample = [64, 25, 12, 22, 11]
 
-print("Original:", sample)
+def measure_time(func, arr):
+    start = time.perf_counter()  # 고해상도 타이머 시작
+    result = func(arr.copy())
+    end = time.perf_counter()    # 타이머 종료
+    elapsed_ms = (end - start) * 1000  # 초 → 밀리초 변환
+    print()
+
+    return result, elapsed_ms
+
+
+# 0 ~ 100000 사이의 정수 10,000개를 무작위로 생성
+sample_big = [random.randint(0, 100000) for _ in range(10000)]
+sample_small = [random.randint(0, 100000) for _ in range(20)]
+
+sample_input = input("샘플 크기 선택 (big/small): ").strip().lower()
+if sample_input == 'big':
+    sample = sample_big
+    print("큰 샘플 (10,000개) 선택 ==========================")
+elif sample_input == 'small':
+    sample = sample_small
+    print("작은 샘플 (20개) 선택 =============================")
+else:
+    print("잘못된 입력입니다. 'big' 또는 'small'을 입력하세요.")
+    exit(1)
+
+print("샘플 크기:", len(sample))
+print("앞부분 20개:", sample[:20])  # 확인용 출력
+print()
 
 # Selection Sort
-start = time.time()
-print("Selection Sort:", selection_sort(sample.copy()))
-end = time.time()
-print(f"Selection Sort Time: {end - start:.6f} sec")
+res, t = measure_time(selection_sort, sample)  # 작은 샘플만 실행
+print("Selection Sort:", res[:20])
+print(f"Selection Sort Time: {t:.3f} ms\n")
 
 # Bubble Sort
-start = time.time()
-print("Bubble Sort:", bubble_sort(sample.copy()))
-end = time.time()
-print(f"Bubble Sort Time: {end - start:.6f} sec")
+res, t = measure_time(bubble_sort, sample)
+print("Bubble Sort:", res[:20])
+print(f"Bubble Sort Time: {t:.3f} ms\n")
 
 # Insertion Sort
-start = time.time()
-print("Insertion Sort:", insertion_sort(sample.copy()))
-end = time.time()
-print(f"Insertion Sort Time: {end - start:.6f} sec")
+res, t = measure_time(insertion_sort, sample)
+print("Insertion Sort:", res[:20])
+print(f"Insertion Sort Time: {t:.3f} ms\n")
 
 # Quick Sort
-start = time.time()
-print("Quick Sort:", quick_sort(sample.copy()))
-end = time.time()
-print(f"Quick Sort Time: {end - start:.6f} sec")
+res, t = measure_time(quick_sort, sample)
+print("Quick Sort:", res[:20])
+print(f"Quick Sort Time: {t:.3f} ms\n")
 
 # Merge Sort
-start = time.time()
-print("Merge Sort:", merge_sort(sample.copy()))
-end = time.time()
-print(f"Merge Sort Time: {end - start:.6f} sec")
+res, t = measure_time(merge_sort, sample)
+print("Merge Sort:", res[:20])
+print(f"Merge Sort Time: {t:.3f} ms\n")
+
+print("="*80)
