@@ -87,7 +87,7 @@ def quick_sort(arr):  # 퀵 정렬 함수 정의
     if len(arr) <= 1:  # 원소가 1개 이하이면 그대로 반환
         return arr
     
-    pivot = arr[NEED_TO_SOLVE]  # 중간 원소를 피벗으로 선택
+    pivot = arr[NEED_TO_SOLVE]  # 마지막 원소를 피벗으로 선택
 
     left = []   # 피벗보다 작은 값들을 담을 리스트
     middle = [] # 피벗과 같은 값들을 담을 리스트
