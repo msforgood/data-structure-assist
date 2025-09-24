@@ -1,6 +1,6 @@
 import time
 import random
-from answer_official import selection_sort, bubble_sort, insertion_sort, quick_sort, merge_sort
+from answer_official import selection_sort, bubble_sort, insertion_sort, quick_sort
 
 
 def measure_time(func, arr):
@@ -55,11 +55,5 @@ res, t = measure_time(quick_sort, sample)
 print("Quick Sort:")
 print(res[:20])
 print(f"Quick Sort Time: {t:.3f} ms\n")
-
-# Merge Sort
-res, t = measure_time(merge_sort, sample)
-print("Merge Sort:")
-print(res[:20])
-print(f"Merge Sort Time: {t:.3f} ms\n")
 
 print("="*80)
