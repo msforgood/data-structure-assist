@@ -34,27 +34,32 @@ print()
 
 # Selection Sort
 res, t = measure_time(selection_sort, sample)  # 작은 샘플만 실행
-print("Selection Sort:", res[:20])
+print("Selection Sort:")
+print(res[:20])
 print(f"Selection Sort Time: {t:.3f} ms\n")
 
 # Bubble Sort
 res, t = measure_time(bubble_sort, sample)
-print("Bubble Sort:", res[:20])
+print("Bubble Sort:")
+print(res[:20])
 print(f"Bubble Sort Time: {t:.3f} ms\n")
 
 # Insertion Sort
 res, t = measure_time(insertion_sort, sample)
-print("Insertion Sort:", res[:20])
+print("Insertion Sort:")
+print(res[:20])
 print(f"Insertion Sort Time: {t:.3f} ms\n")
 
 # Quick Sort
 res, t = measure_time(quick_sort, sample)
-print("Quick Sort:", res[:20])
+print("Quick Sort:")
+print(res[:20])
 print(f"Quick Sort Time: {t:.3f} ms\n")
 
 # Merge Sort
 res, t = measure_time(merge_sort, sample)
-print("Merge Sort:", res[:20])
+print("Merge Sort:")
+print(res[:20])
 print(f"Merge Sort Time: {t:.3f} ms\n")
 
 print("="*80)
