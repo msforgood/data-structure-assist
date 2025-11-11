@@ -16,3 +16,7 @@ __pycache__/
 *$py.class
 
 ignore.*
+
+# PPT 파일
+*.ppt
+*.pptx
