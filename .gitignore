@@ -9,6 +9,7 @@
 
 # 직접 빌드된 실행 파일 이름 지정
 main
+run
 
 # Python 캐시 디렉토리
 __pycache__/
