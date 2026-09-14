@@ -22,3 +22,6 @@ ignore.*
 *.ppt
 *.pptx
 *.mp4
+
+# 모든 pre 디렉토리 무시
+**/pre/
