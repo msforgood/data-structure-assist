@@ -25,3 +25,12 @@ ignore.*
 
 # 모든 pre 디렉토리 무시
 **/pre/
+
+# 시험 문제 레퍼런스 폴더 (학생 비공개)
+**/exam/
+
+# macOS 시스템 파일
+.DS_Store
+
+# Claude 프로젝트 메모 파일
+CLAUDE.md
