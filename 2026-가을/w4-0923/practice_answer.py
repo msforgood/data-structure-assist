@@ -135,18 +135,22 @@ def run_checks():
 # ===========================================================================
 # 시간복잡도 체감 실험 (수정하지 않아도 됨)
 # ===========================================================================
-def build(n):
-    lst = UnsortedList(n + 1000)
+def build(n, extra=1000):
+    lst = UnsortedList(n + extra)
     for i in range(n):
         lst.appendItem(i)
     return lst
 
 
-def measure(n, repeat=200):
-    """맨 앞(pos=0) 삽입을 repeat번 반복하고, 1회당 걸린 시간(마이크로초)을 잰다."""
+def measure(n):
+    """맨 앞(pos=0) 삽입을 여러 번 반복하고, 1회당 걸린 시간(마이크로초)을 잰다.
+
+    improved 쪽은 1회가 너무 빨라서(수백 나노초) 반복 횟수를 더 늘려야
+    시간 측정 오차에 묻히지 않는다.
+    """
     result = []
-    for method in ("insertItem", "improved_insertItem"):
-        lst = build(n)
+    for method, repeat in (("insertItem", 200), ("improved_insertItem", 4000)):
+        lst = build(n, repeat + 100)
         f = getattr(lst, method)
         start = time.perf_counter()
         for _ in range(repeat):
@@ -158,14 +162,15 @@ def measure(n, repeat=200):
 
 def run_experiment():
     print("=== 실험 1. insertItem vs improved_insertItem (pos=0 삽입 1회 평균) ===")
-    print("       N |    insertItem |  improved |  배수")
-    print("-" * 46)
+    print("       N |    insertItem |    improved |  성장 |    배율")
+    print("-" * 58)
     base = None
     for n in (1000, 2000, 4000, 8000, 16000):
         shift_us, improved_us = measure(n)
         if base is None:
             base = shift_us
-        print(f"{n:>8} | {shift_us:>11.1f}us | {improved_us:>7.1f}us | {shift_us / base:>4.1f}x")
+        print(f"{n:>8} | {shift_us:>11.1f}us | {improved_us:>9.3f}us | "
+              f"{shift_us / base:>4.1f}x | {shift_us / improved_us:>6.0f}x")
     print("N이 2배가 되면 insertItem도 약 2배 -> O(N) / improved는 그대로 -> O(1)\n")
 
     print("=== 실험 2. findItem(없는 값) vs getItem (1회 평균) ===")
